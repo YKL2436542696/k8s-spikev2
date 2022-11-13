@@ -1,5 +1,7 @@
 # operator 学习开发_K8s-spikev
 
+[项目地址](https://github.com/YKL2436542696/k8s-spikev2)
+
 ## 环境准备
 
 1. 需要服务器端的k8s环境，并把`~/.kube/config`文件复制到本地。（我服务端K8s版本为1.22）
@@ -353,31 +355,31 @@ kubectl logs -f k8s-spike-v2-controller-manager-5b9bb947d7-dml8z -n k8s-spike-v2
 
 1. 创建买家
 
-   ![image-20221113175126966](/Users/ykl/Library/Application Support/typora-user-images/image-20221113175126966.png)
+   ![image-20221113175126966](img/1.png)
 
 2. 创建卖家
 
-   ![image-20221113175206846](/Users/ykl/Library/Application Support/typora-user-images/image-20221113175206846.png)
+   ![image-20221113175206846](img/2.png)
 
 3. 创建一个商品
 
-   ![image-20221113175332868](/Users/ykl/Library/Application Support/typora-user-images/image-20221113175332868.png)
+   ![image-20221113175332868](img/3.png)
 
 4. 创建一个订单,且暂时不支付，商品库存会暂时扣减
 
-   ![image-20221113175620237](/Users/ykl/Library/Application Support/typora-user-images/image-20221113175620237.png)
+   ![image-20221113175620237](img/4.png)
 
    等待过期，库存回滚
 
-   ![image-20221113180142228](/Users/ykl/Library/Application Support/typora-user-images/image-20221113180142228.png)
+   ![image-20221113180142228](img/5.png)
 
 5. 创建一个订单，且立即支付
 
-   ![image-20221113180319392](/Users/ykl/Library/Application Support/typora-user-images/image-20221113180319392.png)
+   ![image-20221113180319392](img/6.png)
 
 6. 创建一个订单，先不支付。然后通过`kubectl edit spikeorder order3 `,将`isPay`字段修改为true
 
-   ![image-20221113180630324](/Users/ykl/Library/Application Support/typora-user-images/image-20221113180630324.png)
+   ![image-20221113180630324](img/7.png)
 
 ## 未实现逻辑设想
 

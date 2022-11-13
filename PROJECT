@@ -1,0 +1,43 @@
+domain: spike.com
+layout:
+- go.kubebuilder.io/v3
+projectName: k8s-spike-v2
+repo: k8s-spikev2
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: spike.com
+  group: myapp
+  kind: SpikeGoods
+  path: k8s-spikev2/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: spike.com
+  group: myapp
+  kind: SpikeOrder
+  path: k8s-spikev2/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: spike.com
+  group: myapp
+  kind: Buyer
+  path: k8s-spikev2/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: spike.com
+  group: myapp
+  kind: Seller
+  path: k8s-spikev2/api/v1
+  version: v1
+version: "3"

@@ -1,0 +1,83 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.9.2
+  creationTimestamp: null
+  name: spikegoods.myapp.spike.com
+spec:
+  group: myapp.spike.com
+  names:
+    kind: SpikeGoods
+    listKind: SpikeGoodsList
+    plural: spikegoods
+    singular: spikegoods
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: SpikeGoods is the Schema for the spikegoods API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: SpikeGoodsSpec defines the desired state of SpikeGoods
+            properties:
+              day:
+                description: 活动持续时间
+                type: integer
+              goodsName:
+                description: Foo is an example field of SpikeGoods. Edit spikegoods_types.go
+                  to remove/update 商品标题
+                type: string
+              price:
+                description: 原价
+                type: integer
+              sellerId:
+                description: 商家ID
+                type: string
+              spikePrice:
+                description: 秒杀价格
+                type: integer
+              stockCount:
+                description: 总库存数
+                type: integer
+            type: object
+          status:
+            description: SpikeGoodsStatus defines the observed state of SpikeGoods
+            properties:
+              endTime:
+                description: 活动结束时间
+                type: string
+              goodsId:
+                description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                  of cluster Important: Run "make" to regenerate code after modifying
+                  this file 商品ID'
+                type: string
+              lastCount:
+                description: 剩余库存数
+                type: integer
+              num:
+                description: 已售商品数
+                type: integer
+              start_time:
+                description: 活动开始时间
+                type: string
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}

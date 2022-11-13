@@ -1,0 +1,7 @@
+apiVersion: myapp.spike.com/v1
+kind: Seller
+metadata:
+  name: seller2
+  namespace: default
+spec:
+  sellerPhone: "123"

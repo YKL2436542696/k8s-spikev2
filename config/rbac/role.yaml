@@ -1,0 +1,111 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - buyers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - buyers/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - buyers/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - sellers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - sellers/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - sellers/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - spikegoods
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - spikegoods/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - spikegoods/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - spikeorders
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - spikeorders/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - spikeorders/status
+  verbs:
+  - get
+  - patch
+  - update

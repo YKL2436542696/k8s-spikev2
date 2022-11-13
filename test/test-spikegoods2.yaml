@@ -1,0 +1,14 @@
+apiVersion: myapp.spike.com/v1
+kind: SpikeGoods
+metadata:
+  name: goods2
+  namespace: default
+spec:
+  goodsName: "iphone 14"
+  sellerId: "ade9009d-e642-41ca-9d55-1bfe32bd9547"
+  price: 20
+  spikePrice: 18
+  day: 1
+  stockCount: 6
+
+

@@ -1,0 +1,93 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.9.2
+  creationTimestamp: null
+  name: spikeorders.myapp.spike.com
+spec:
+  group: myapp.spike.com
+  names:
+    kind: SpikeOrder
+    listKind: SpikeOrderList
+    plural: spikeorders
+    singular: spikeorder
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: SpikeOrder is the Schema for the spikeorders API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: SpikeOrderSpec defines the desired state of SpikeOrder
+            properties:
+              buyerId:
+                description: 'INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
+                  Important: Run "make" to regenerate code after modifying this file
+                  Foo is an example field of SpikeOrder. Edit spikeorder_types.go
+                  to remove/update 买家ID'
+                type: string
+              goodsMap:
+                additionalProperties:
+                  type: integer
+                description: 秒杀商品列表
+                type: object
+              isPay:
+                description: 是否付款
+                type: boolean
+            type: object
+          status:
+            description: SpikeOrderStatus defines the observed state of SpikeOrder
+            properties:
+              address:
+                description: 收货地址
+                type: string
+              createTime:
+                description: 订单创建时间
+                type: string
+              discount:
+                description: 优惠金额
+                type: integer
+              expiredTime:
+                description: 订单过期时间
+                type: string
+              money:
+                description: 需付金额
+                type: integer
+              orderId:
+                description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                  of cluster Important: Run "make" to regenerate code after modifying
+                  this file 订单ID'
+                type: string
+              payStatus:
+                description: 订单状态 0 未支付 1 已支付 2 已过期
+                type: string
+              payTime:
+                description: 订单支付时间
+                type: string
+              phone:
+                description: 收货电话
+                type: string
+              receiver:
+                description: 收货人
+                type: string
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}

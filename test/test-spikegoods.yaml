@@ -1,0 +1,14 @@
+apiVersion: myapp.spike.com/v1
+kind: SpikeGoods
+metadata:
+  name: goods1
+  namespace: default
+spec:
+  goodsName: "iphone 13"
+  sellerId: "353653d4-401a-4970-aed8-aca5eb3a34d0"
+  price: 10
+  spikePrice: 8
+  day: 1
+  stockCount: 5
+
+

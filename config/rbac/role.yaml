@@ -34,6 +34,58 @@ rules:
 - apiGroups:
   - myapp.spike.com
   resources:
+  - goods
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - goods/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - goods/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - masses
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - masses/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - masses/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - myapp.spike.com
+  resources:
   - sellers
   verbs:
   - create

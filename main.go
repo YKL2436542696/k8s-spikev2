@@ -32,6 +32,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
 	myappv1 "k8s-spikev2/api/v1"
+	myappv2 "k8s-spikev2/api/v2"
 	"k8s-spikev2/controllers"
 	//+kubebuilder:scaffold:imports
 )
@@ -45,6 +46,7 @@ func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
 	utilruntime.Must(myappv1.AddToScheme(scheme))
+	utilruntime.Must(myappv2.AddToScheme(scheme))
 	//+kubebuilder:scaffold:scheme
 }
 
@@ -115,6 +117,20 @@ func main() {
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "Seller")
+		os.Exit(1)
+	}
+	if err = (&controllers.GoodsReconciler{
+		Client: mgr.GetClient(),
+		Scheme: mgr.GetScheme(),
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "Goods")
+		os.Exit(1)
+	}
+	if err = (&controllers.MassesReconciler{
+		Client: mgr.GetClient(),
+		Scheme: mgr.GetScheme(),
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "Masses")
 		os.Exit(1)
 	}
 	//+kubebuilder:scaffold:builder

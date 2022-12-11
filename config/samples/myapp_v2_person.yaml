@@ -1,0 +1,12 @@
+apiVersion: myapp.spike.com/v2
+kind: Person
+metadata:
+  labels:
+    app.kubernetes.io/name: person
+    app.kubernetes.io/instance: person-sample
+    app.kubernetes.io/part-of: k8s-spike-v2
+    app.kuberentes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: k8s-spike-v2
+  name: person-sample
+spec:
+  # TODO(user): Add fields here

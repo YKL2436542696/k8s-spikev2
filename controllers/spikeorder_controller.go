@@ -98,8 +98,8 @@ func initUpdateOrder(ctx context.Context, spikeOrder *myappv1.SpikeOrder, r *Spi
 	spikeOrder.Status.OrderId = uuid.New().String()
 	now := time.Now()
 	spikeOrder.Status.CreateTime = now.Format("2006-01-02 15:04:05")
-	// 默认过期时间5分钟
-	t, _ := time.ParseDuration("5m")
+	// 默认过期时间1分钟
+	t, _ := time.ParseDuration("1m")
 	spikeOrder.Status.ExpiredTime = now.Add(t).Format("2006-01-02 15:04:05")
 
 	// 根据商品ID 计算优惠金额、需付金额
@@ -343,9 +343,9 @@ func stringIn(target string, strArray []string) bool {
 // TaskOrder 定时任务检测订单是否超时过期
 func TaskOrder(ctx context.Context, spikeOrder *myappv1.SpikeOrder, r *SpikeOrderReconciler) {
 	log.Log.Info("2.1 启动定时任务...")
-	timer := time.NewTimer(5 * time.Minute)
+	timer := time.NewTimer(1 * time.Minute)
 	<-timer.C
-	log.Log.Info("2.2 5分钟已到，检查订单是否未支付...")
+	log.Log.Info("2.2 1分钟已到，检查订单是否未支付...")
 	if spikeOrder.Spec.IsPay == false && spikeOrder.Status.PayStatus == "0" &&
 		spikeOrder.Status.ExpiredTime != "" {
 		now := time.Now()

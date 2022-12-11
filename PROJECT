@@ -40,4 +40,31 @@ resources:
   kind: Seller
   path: k8s-spikev2/api/v1
   version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: spike.com
+  group: myapp
+  kind: Goods
+  path: k8s-spikev2/api/v2
+  version: v2
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: spike.com
+  group: myapp
+  kind: Person
+  path: k8s-spikev2/api/v2
+  version: v2
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: spike.com
+  group: myapp
+  kind: Masses
+  path: k8s-spikev2/api/v2
+  version: v2
 version: "3"

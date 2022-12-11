@@ -5,4 +5,4 @@ kind: Kustomization
 images:
 - name: controller
   newName: xiaoyie/spike-controller
-  newTag: "001"
+  newTag: "002"

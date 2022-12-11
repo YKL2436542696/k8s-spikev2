@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   goodsName: "iphone 13"
-  sellerId: "353653d4-401a-4970-aed8-aca5eb3a34d0"
+  sellerId: "6e0b44d9-773b-42f8-8fa8-394d6e7ba262"
   price: 10
   spikePrice: 8
   day: 1

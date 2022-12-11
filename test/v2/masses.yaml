@@ -1,0 +1,8 @@
+apiVersion: myapp.spike.com/v2
+kind: Masses
+metadata:
+  name: ma1
+  namespace: default
+spec:
+  personAddr: 成都
+  personNum: 2000

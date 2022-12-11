@@ -1,0 +1,8 @@
+apiVersion: myapp.spike.com/v2
+kind: Goods
+metadata:
+  name: goods1
+  namespace: default
+spec:
+  goodsName: iPhone 14
+  stock: 100

@@ -1,0 +1,31 @@
+# permissions for end users to edit people.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: person-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: k8s-spike-v2
+    app.kubernetes.io/part-of: k8s-spike-v2
+    app.kubernetes.io/managed-by: kustomize
+  name: person-editor-role
+rules:
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - people
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - myapp.spike.com
+  resources:
+  - people/status
+  verbs:
+  - get
